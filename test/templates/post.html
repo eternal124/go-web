@@ -1,0 +1,17 @@
+{{define "logined"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+<table>
+{{range $key, $value := . }}
+        <tr><td>{{$key}}</td><td>{{ $value}}</td></tr>
+{{end}}
+</table>
+</body>
+</html>
+{{end}}

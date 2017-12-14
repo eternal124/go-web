@@ -1,0 +1,60 @@
+import React from 'react'
+import PropTypes from 'prop-types';
+import { connect } from 'dva'
+import { Table } from 'antd'
+
+import {onSearch} from '../actions/index'
+import '../static/index.css'
+
+const All = ( {users, onClick}) => {
+    const columns = [{
+        title: 'Id-Card',
+        dataIndex: 'id',
+        key: 'id'
+      }, {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name'
+      }, {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+      }, {
+        title: 'Sex',
+        dataIndex: 'sex',
+        key: 'sex',
+      }, {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'action'
+      }];
+
+    return (
+        <Table columns={columns} dataSource={users} rowKey='id' onRowClick={(record, id, e) => onClick(record.id)}/>
+    )
+}
+
+All.propTypes = {
+    users: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired
+}
+
+const mapStateToProps = ({userManage}) => {
+    return {
+        users: userManage.users
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClick: (id) => dispatch({
+            type: 'userManage/clickOne',
+            id
+        })
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(All)

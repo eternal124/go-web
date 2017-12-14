@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+    <h1>all user</h1>
+    {{/*{{ range $user := .users }}*/}}
+        <table>
+        {{range $key, $value := .users }}
+                <tr><td>{{$key}}</td><td>{{ $value}}</td></tr>
+        {{end}}
+        </table>
+        <br>
+    {{/*{{else}}*/}}
+        <h2>user 数组为空</h2>
+    {{/*{{ end }}*/}}
+</body>
+</html>

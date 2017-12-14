@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Test</title>
+</head>
+
+<body>
+{{.}}
+<form name="user" action="/login" method="post">
+    姓名:<input type="text" name="name"/> {{.username}}<br>
+    密码:<input type="text" name="password"/><br>
+    头像:<input type="file" name="icon"/><br>
+    学院:<input type="checkbox" name="academy"/><br>
+    简介:<input type="textarea" name="info"/><br>
+    <input type="submit" value="确定"><br>
+</form>
+</body>
+
+</html>
